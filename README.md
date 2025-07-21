@@ -2,11 +2,11 @@
 
 # Next.js Prisma Boilerplate
 
-[![tests](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/tests.yml/badge.svg)](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/tests.yml)
-[![docker build](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/build-docker-image.yml/badge.svg)](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/build-docker-image.yml)
-[![deploy](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/deploy.yml/badge.svg)](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/deploy.yml)
-![Docker Image Size (tag)](https://img.shields.io/docker/image-size/nemanjamitic/nextjs-prisma-boilerplate/latest?logo=docker)
-![GitHub](https://img.shields.io/github/license/nemanjam/nextjs-prisma-boilerplate)
+[![tests](https://github.com/nemanjam/elclu/actions/workflows/tests.yml/badge.svg)](https://github.com/nemanjam/elclu/actions/workflows/tests.yml)
+[![docker build](https://github.com/nemanjam/elclu/actions/workflows/build-docker-image.yml/badge.svg)](https://github.com/nemanjam/elclu/actions/workflows/build-docker-image.yml)
+[![deploy](https://github.com/nemanjam/elclu/actions/workflows/deploy.yml/badge.svg)](https://github.com/nemanjam/elclu/actions/workflows/deploy.yml)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/nemanjamitic/elclu/latest?logo=docker)
+![GitHub](https://img.shields.io/github/license/nemanjam/elclu)
 
 This is full stack boilerplate built around latest Next.js stack. It is composed of the best practices described in official docs combined with my decisions derived from my own experience and knowledge that I have gathered from working with other people.
 
@@ -18,7 +18,7 @@ Don't spend next 3 months making architectural decisions, choosing libraries, se
 
 > If the app is vandalized just use `Reseed` link on the right side of the footer to reseed the database.
 
-- **[https://nextjs-prisma-boilerplate.arm1.nemanjamitic.com](https://nextjs-prisma-boilerplate.arm1.nemanjamitic.com/)**
+- **[https://elclu.arm1.nemanjamitic.com](https://elclu.arm1.nemanjamitic.com/)**
 
 #### Gitpod development playground:
 
@@ -163,8 +163,8 @@ Clone repository and install dependencies.
 
 ```bash
 # clone repository
-git clone git@github.com:nemanjam/nextjs-prisma-boilerplate.git
-cd nextjs-prisma-boilerplate
+git clone git@github.com:nemanjam/elclu.git
+cd elclu
 
 # install dependencies
 yarn install
@@ -300,7 +300,7 @@ git config --list --show-origin
 Go to [elephantsql.com](https://elephantsql.com) create free account and create free 20MB Postgres database. Go to [gitpod.io](https://gitpod.io/), login with Github. Open your forked repository in Gitpod by opening following link (replace `your-username` with real one):
 
 ```
-https://gitpod.io/#https://github.com/your-username/nextjs-prisma-boilerplate
+https://gitpod.io/#https://github.com/your-username/elclu
 ```
 
 Gitpod environment will read variables from `envs/development-gitpod` folder. Create local env file from example file.
@@ -569,10 +569,10 @@ Bellow are listed all environments variables you need to set. For sake of simpli
 
 ```bash
 # create .env file locally and set vars
-cp apps/nextjs-prisma-boilerplate/.env.example apps/nextjs-prisma-boilerplate/.env
+cp apps/elclu/.env.example apps/elclu/.env
 
 # copy populated local .env file to server securely with ssh
-scp ./apps/nextjs-prisma-boilerplate/.env ubuntu@your-server:~/traefik-proxy/apps/nextjs-prisma-boilerplate
+scp ./apps/elclu/.env ubuntu@your-server:~/traefik-proxy/apps/elclu
 ```
 
 These are all needed variables.
@@ -580,7 +580,7 @@ These are all needed variables.
 > `MY_UID` and `MY_GID` are id's of your current user and group on your Linux server. You can see their values by running `id -u` and `id -g` in your server's terminal. The best place to set them is globally in `~/.bashrc` because they can be needed for multiple containers. They are passed into Postgres container so that volume data files are created with correct permissions and ownership (as current user and not root user).
 
 ```bash
-# apps/nextjs-prisma-boilerplate/.env
+# apps/elclu/.env
 
 # public vars bellow
 
@@ -590,7 +590,7 @@ APP_ENV=live
 SITE_PROTOCOL=http
 
 # real full production public domain (with subdomain), used in app and Traefik
-SITE_HOSTNAME=nextjs-prisma-boilerplate.nemanjamitic.com
+SITE_HOSTNAME=elclu.nemanjamitic.com
 PORT=3001
 
 # real url is https and doesn't have port, Traefik handles https and port
@@ -684,7 +684,7 @@ Contributions are welcome. You can find more info how to contribute in [contribu
 
 ## Known issues
 
-- in development mode refreshing a page sometimes causes hydration error, more info in this issue [Suspense - hydration error on page refresh](https://github.com/nemanjam/nextjs-prisma-boilerplate/issues/1)
+- in development mode refreshing a page sometimes causes hydration error, more info in this issue [Suspense - hydration error on page refresh](https://github.com/nemanjam/elclu/issues/1)
 
 ## Related projects
 
