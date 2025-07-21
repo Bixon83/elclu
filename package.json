@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-prisma-boilerplate",
+  "name": "elclu",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nemanjam/nextjs-prisma-boilerplate"
+    "url": "https://github.com/nemanjam/elclu"
   },
-  "homepage": "https://github.com/nemanjam/nextjs-prisma-boilerplate",
+  "homepage": "https://github.com/nemanjam/elclu",
   "scripts": {
     "dev": "NODE_ENV=development nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
@@ -75,10 +75,10 @@
     "gitpod:push:env": "yarn with:gitpod:env prisma:push",
     "gitpod:seed:env": "yarn with:gitpod:env prisma:seed",
     "gitpod:dev:env": "yarn with:gitpod:env dev",
-    "docker:live:build": "dotenv -e ./envs/production-live/.env.production.live.build.local -- bash -c 'docker build -f Dockerfile.prod -t nemanjamitic/nextjs-prisma-boilerplate:latest --build-arg ARG_DATABASE_URL=${DATABASE_URL} --build-arg ARG_NEXTAUTH_URL=${NEXTAUTH_URL} .'",
-    "docker:live:build:push:arm": "dotenv -e ./envs/production-live/.env.production.live.build.local -- bash -c 'docker buildx build -f Dockerfile.prod -t nemanjamitic/nextjs-prisma-boilerplate:arm-latest --build-arg ARG_DATABASE_URL=${DATABASE_URL} --build-arg ARG_NEXTAUTH_URL=${NEXTAUTH_URL} --platform linux/arm64 --push .'",
-    "docker:live:tag": "docker tag nextjs-prisma-boilerplate:latest nemanjamitic/nextjs-prisma-boilerplate:latest",
-    "docker:live:push": "docker push nemanjamitic/nextjs-prisma-boilerplate:latest",
+    "docker:live:build": "dotenv -e ./envs/production-live/.env.production.live.build.local -- bash -c 'docker build -f Dockerfile.prod -t nemanjamitic/elclu:latest --build-arg ARG_DATABASE_URL=${DATABASE_URL} --build-arg ARG_NEXTAUTH_URL=${NEXTAUTH_URL} .'",
+    "docker:live:build:push:arm": "dotenv -e ./envs/production-live/.env.production.live.build.local -- bash -c 'docker buildx build -f Dockerfile.prod -t nemanjamitic/elclu:arm-latest --build-arg ARG_DATABASE_URL=${DATABASE_URL} --build-arg ARG_NEXTAUTH_URL=${NEXTAUTH_URL} --platform linux/arm64 --push .'",
+    "docker:live:tag": "docker tag elclu:latest nemanjamitic/elclu:latest",
+    "docker:live:push": "docker push nemanjamitic/elclu:latest",
     "debug:env": "dotenv -e ./envs/production-live/.env.production.live.build.local -- sh -c 'echo $DATABASE_URL'"
   },
   "dependencies": {
