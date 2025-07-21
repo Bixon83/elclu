@@ -46,8 +46,8 @@ jobs:
             "ARG_DATABASE_URL=${{ secrets.NPB_DATABASE_URL }}"
             "ARG_NEXTAUTH_URL=${{ secrets.NPB_NEXTAUTH_URL }}"
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nextjs-prisma-boilerplate:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/nextjs-prisma-boilerplate:buildcache
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/elclu:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/elclu:buildcache
           cache-to: type=inline
 
       - name: Image digest
