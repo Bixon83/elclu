@@ -84,3 +84,12 @@ model VerificationToken {
   @@unique([identifier, token])  
   @@map("verificationtokens")
 }
+model Game {
+  id          String   @id @default(cuid())
+  bggId       Int      @unique
+  name        String
+  year        Int?
+  image       String?
+  description String?
+  createdAt   DateTime @default(now())
+}
