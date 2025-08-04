@@ -1,50 +1,34 @@
-import React, { FC } from 'react';
-import { GetServerSideProps } from 'next';
-import { dehydrate, QueryClient } from 'react-query';
-import PageLayout from 'layouts/PageLayout';
-import HomeView from 'views/Home';
-import QueryKeys, { filterEmptyKeys } from 'lib-client/react-query/queryKeys';
-import CustomHead from 'components/CustomHead';
-import { ssrNcHandler } from 'lib-server/nc';
-import { PaginatedResponse } from 'types';
-import { PostWithAuthor } from 'types/models/Post';
-import { Redirects } from 'lib-client/constants';
-import { getPosts } from 'lib-server/services/posts';
-import { ClientUser } from 'types/models/User';
-import { getMe } from 'lib-server/services/users';
+import Link from 'next/link';
 
-const Home: FC = () => {
+export default function Home() {
   return (
-    <>
-      <CustomHead />
-      <PageLayout>
-        {/* now posts are passed via context and React Query cache */}
-        <HomeView />
-      </PageLayout>
-    </>
+    <section>
+      {/* Hero */}
+      <div className="bg-white border-b border-gray-300">
+        <div className="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between">
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl font-bold mb-2">¡Bienvenido a El Clú del Boardgame!</h1>
+            <p className="text-gray-700 mb-4">Tu sitio de juegos de mesa en español.</p>
+            <Link
+              href="/juegos"
+              className="inline-block bg-cluGreen text-white px-6 py-3 rounded hover:bg-cluGreenDark transition"
+            >
+              Explorar juegos
+            </Link>
+          </div>
+          {/* Opcional: alguna imagen o ilustración */}
+          <div className="mt-8 md:mt-0">
+            <img src="/hero-juegos.svg" alt="Cartas y meeples" className="h-40 mx-auto" />
+          </div>
+        </div>
+      </div>
+
+      {/* Placeholder de secciones futuras */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="border-2 border-dashed border-gray-300 p-12 text-center text-gray-400">
+          Aquí irán las secciones “¿Qué es El Clú?”, destacados, etc.
+        </div>
+      </div>
+    </section>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  // just for MeProvider
-  const callback1 = async () => await getMe({ req });
-  const me = await ssrNcHandler<ClientUser | null>(req, res, callback1);
-
-  // empty params, nothing to validate
-  const callback = async () => await getPosts();
-  const posts = ssrNcHandler<PaginatedResponse<PostWithAuthor>>(req, res, callback);
-
-  if (!posts) return Redirects._500;
-
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery([QueryKeys.POSTS_HOME, 1], () => posts);
-  await queryClient.prefetchQuery(filterEmptyKeys([QueryKeys.ME, me?.id]), () => me);
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-};
-
-export default Home;
+}
